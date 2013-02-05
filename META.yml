@@ -1,5 +1,5 @@
 ---
-abstract: 'This module tries to convert a number into Chinese cardinal number. It supports decimals number, and five representation systems (charsets): traditional, simplified, big5, gb and pinyin.'
+abstract: 'Number 2 word conversion in ZHO.'
 author:
   - 'Autrijus Tang <autrijus@autrijus.org>'
 build_requires:
@@ -21,4 +21,4 @@ requires:
   perl: 5.001
   strict: 0
   vars: 0
-version: 0.044
+version: 0.0577

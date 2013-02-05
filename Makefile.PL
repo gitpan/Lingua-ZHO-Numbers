@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "This module tries to convert a number into Chinese cardinal number. It supports decimals number, and five representation systems (charsets): traditional, simplified, big5, gb and pinyin.",
+  "ABSTRACT" => "Number 2 word conversion in ZHO.",
   "AUTHOR" => "Autrijus Tang <autrijus\@autrijus.org>",
   "BUILD_REQUIRES" => {
     "Test::More" => 0,
@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "vars" => 0
   },
-  "VERSION" => "0.044",
+  "VERSION" => "0.0577",
   "test" => {
     "TESTS" => "t/*.t"
   }

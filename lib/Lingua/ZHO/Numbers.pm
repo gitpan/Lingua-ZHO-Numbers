@@ -4,7 +4,7 @@
 #
 
 package Lingua::ZHO::Numbers;
-# ABSTRACT: This module tries to convert a number into Chinese cardinal number. It supports decimals number, and five representation systems (charsets): traditional, simplified, big5, gb and pinyin.
+# ABSTRACT: Number 2 word conversion in ZHO.
 
 # {{{ use block
 
@@ -17,8 +17,7 @@ use vars qw($Charset $VERSION @EXPORT_OK);
 # }}}
 # {{{ variables declaration
 
-my($ver)                        = ('$Rev: 440 $' =~ m{(\d+)}xms);
-$Lingua::ZHO::Numbers::VERSION = $ver / 10_000;
+$Lingua::ZHO::Numbers::VERSION = 0.0577;
 
 @EXPORT_OK = 'number_to_zh';
 
@@ -201,7 +200,7 @@ Lingua::ZHO::Numbers - Converts numeric values into their Chinese string equival
 
 =head1 VERSION
 
-version 0.044
+version 0.0577
 
 =head1 SYNOPSIS
 
@@ -221,6 +220,8 @@ version 0.044
     Lingua::ZHO::Numbers->charset('big5');
 
 =head1 DESCRIPTION
+
+Number 2 word conversion in ZHO.
 
 This module tries to convert a number into Chinese cardinal number.
 It supports decimals number, and five representation systems
