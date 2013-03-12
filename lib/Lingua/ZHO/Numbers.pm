@@ -8,7 +8,7 @@ package Lingua::ZHO::Numbers;
 
 # {{{ use block
 
-use 5.001;
+use 5.10.1;
 use strict;
 use Exporter;
 use base 'Exporter';
@@ -17,7 +17,7 @@ use vars qw($Charset $VERSION @EXPORT_OK);
 # }}}
 # {{{ variables declaration
 
-$Lingua::ZHO::Numbers::VERSION = 0.0577;
+$Lingua::ZHO::Numbers::VERSION = 0.0682;
 
 @EXPORT_OK = 'number_to_zh';
 
@@ -200,7 +200,7 @@ Lingua::ZHO::Numbers - Converts numeric values into their Chinese string equival
 
 =head1 VERSION
 
-version 0.0577
+version 0.0682
 
 =head1 SYNOPSIS
 
