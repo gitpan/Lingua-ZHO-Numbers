@@ -10,6 +10,7 @@ use strict;
 use warnings;
 use utf8;
 
+use Test::Exception;
 use Test::More;
 
 # }}}
@@ -37,12 +38,7 @@ my $nw = [
         'Ling',
         '0 in PinYin',
     ],
-    [
-        undef,
-        'Ling',
-        'undef args (like 0)',
-    ],
-];
+ ];
 
 for my $test (@{$nw}) {
     my $got = Lingua::ZHO::Numbers::number_to_zh($test->[0]);
@@ -50,6 +46,9 @@ for my $test (@{$nw}) {
     is($got, $exp, $test->[2]);
     $tests++;
 }
+
+dies_ok( sub { Lingua::ZHO::Numbers::number_to_zh(undef); }, 'undef args (like 0)' );
+$tests++;
 
 Lingua::ZHO::Numbers->charset('big5');
 
@@ -64,11 +63,6 @@ my $nw_b5 = [
         "\xB9s",
         '0 in Big5',
     ],
-    [
-        undef,
-        "\xB9s",
-        'undef args (like 0)',
-    ],
 ];
 
 for my $test (@{$nw_b5}) {
@@ -77,6 +71,9 @@ for my $test (@{$nw_b5}) {
     is($got, $exp, $test->[2]);
     $tests++;
 }
+
+dies_ok( sub { Lingua::ZHO::Numbers::number_to_zh(undef); }, 'undef args' );
+$tests++;
 
 Lingua::ZHO::Numbers->charset('simplified');
 
@@ -91,11 +88,6 @@ my $nw_s = [
         "\x{96f6}",
         '0 in Simplified script',
     ],
-    [
-        undef,
-        "\x{96f6}",
-        'undef args (like 0)',
-    ],
 ];
 
 for my $test (@{$nw_s}) {
@@ -104,6 +96,9 @@ for my $test (@{$nw_s}) {
     is($got, $exp, $test->[2]);
     $tests++;
 }
+
+dies_ok( sub { Lingua::ZHO::Numbers::number_to_zh(undef); }, 'undef args' );
+$tests++;
 
 Lingua::ZHO::Numbers->charset('traditional');
 
@@ -118,11 +113,6 @@ my $nw_t = [
         "\x{96f6}",
         '0 in Traditional script',
     ],
-    [
-        undef,
-        "\x{96f6}",
-        'undef args (like 0)',
-    ],
 ];
 
 for my $test (@{$nw_t}) {
@@ -131,6 +121,9 @@ for my $test (@{$nw_t}) {
     is($got, $exp, $test->[2]);
     $tests++;
 }
+
+dies_ok( sub { Lingua::ZHO::Numbers::number_to_zh(undef) }, 'undef args' );
+$tests++;
 
 # }}}
 

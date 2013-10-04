@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Number 2 word conversion in ZHO.",
   "AUTHOR" => "Autrijus Tang <autrijus\@autrijus.org>",
   "BUILD_REQUIRES" => {
+    "Test::Exception" => 0,
     "Test::More" => 0,
     "utf8" => 0,
     "warnings" => 0
@@ -24,12 +25,13 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Lingua::ZHO::Numbers",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Exporter" => 0,
     "base" => 0,
     "strict" => 0,
     "vars" => 0
   },
-  "VERSION" => "0.0682",
+  "VERSION" => "0.1101",
   "test" => {
     "TESTS" => "t/*.t"
   }

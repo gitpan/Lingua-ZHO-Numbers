@@ -10,6 +10,7 @@ package Lingua::ZHO::Numbers;
 
 use 5.10.1;
 use strict;
+use Carp;
 use Exporter;
 use base 'Exporter';
 use vars qw($Charset $VERSION @EXPORT_OK);
@@ -17,7 +18,7 @@ use vars qw($Charset $VERSION @EXPORT_OK);
 # }}}
 # {{{ variables declaration
 
-$Lingua::ZHO::Numbers::VERSION = 0.0682;
+$Lingua::ZHO::Numbers::VERSION = 0.1101;
 
 @EXPORT_OK = 'number_to_zh';
 
@@ -98,30 +99,6 @@ sub map_zho {
 }
 
 # }}}
-# {{{ new
-
-sub new {
-    my ($class, $num) = @_;
-    return bless (\$num, $class);
-}
-
-# }}}
-# {{{ parse
-
-sub parse {
-    my ($self, $num) = @_;
-    return ${$self} = $num;
-}
-
-# }}}
-# {{{ get_string
-
-sub get_string {
-    my ($self) = @_;
-    return number_to_zh($$self);
-}
-
-# }}}
 # {{{ number_to_zh
 
 sub number_to_zh {
@@ -134,6 +111,13 @@ sub number_to_zh {
 
 sub _convert {
     my ($class, $map, $input) = @_;
+
+    croak 'You should specify a number from interval [0, trillion)'
+        if    !defined $input
+           || $input !~ m{\A[\-\.\d]+\z}xms
+           || $input >= 10 ** 15;
+
+
     $input =~ s/[^\d\.\-]//;
 
     my @dig = @{$map->{dig}};
@@ -200,7 +184,7 @@ Lingua::ZHO::Numbers - Converts numeric values into their Chinese string equival
 
 =head1 VERSION
 
-version 0.0682
+version 0.1101
 
 =head1 SYNOPSIS
 
