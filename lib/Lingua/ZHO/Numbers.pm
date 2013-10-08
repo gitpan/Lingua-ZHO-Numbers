@@ -18,7 +18,7 @@ use vars qw($Charset $VERSION @EXPORT_OK);
 # }}}
 # {{{ variables declaration
 
-$Lingua::ZHO::Numbers::VERSION = 0.1101;
+$Lingua::ZHO::Numbers::VERSION = 0.1106;
 
 @EXPORT_OK = 'number_to_zh';
 
@@ -184,7 +184,7 @@ Lingua::ZHO::Numbers - Converts numeric values into their Chinese string equival
 
 =head1 VERSION
 
-version 0.1101
+version 0.1106
 
 =head1 SYNOPSIS
 
@@ -202,6 +202,8 @@ version 0.1101
 
     # Change output format
     Lingua::ZHO::Numbers->charset('big5');
+
+    Only numbers from interval [0, trillion) can be converted.
 
 =head1 DESCRIPTION
 
