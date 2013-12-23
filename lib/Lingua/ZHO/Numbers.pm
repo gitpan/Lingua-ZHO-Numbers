@@ -18,7 +18,7 @@ use vars qw($Charset $VERSION @EXPORT_OK);
 # }}}
 # {{{ variables declaration
 
-$Lingua::ZHO::Numbers::VERSION = 0.1106;
+$Lingua::ZHO::Numbers::VERSION = 0.1192;
 
 @EXPORT_OK = 'number_to_zh';
 
@@ -96,6 +96,30 @@ sub charset {
 
 sub map_zho {
     return \%MAP;
+}
+
+# }}}
+# {{{ new
+
+sub new {
+    my ($class, $num) = @_;
+    bless (\$num, $class);
+}
+
+# }}}
+# {{{ parse
+
+sub parse {
+    my ($self, $num) = @_;
+    ${$self} = $num;
+}
+
+# }}}
+# {{{ get_string
+
+sub get_string {
+    my ($self) = @_;
+    return number_to_zh($$self);
 }
 
 # }}}
@@ -184,7 +208,7 @@ Lingua::ZHO::Numbers - Converts numeric values into their Chinese string equival
 
 =head1 VERSION
 
-version 0.1106
+version 0.1192
 
 =head1 SYNOPSIS
 
